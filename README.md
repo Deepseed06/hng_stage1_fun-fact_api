@@ -4,7 +4,7 @@ The Fun Facts Math API is a RESTful service that takes an integer as input and r
 
 Endpoint
 1. Get Mathematical Properties
-- URL: /api/classify-number
+- URL: https://hngstage1fun-fact-api.vercel.app/api/classify-number
 - Method: GET
 - Query Parameters:
     - number: the input number (integer)
@@ -13,7 +13,7 @@ Endpoint
     - 400 Bad Request: invalid request
 
 Making the Query
-To make a query, simply append the num parameter to the URL. For example:
+To make a query, simply append the number parameter to the URL. For example:
 
 - To get the mathematical properties of the number 371, make a GET request to: https://hngstage1fun-fact-api.vercel.app/api/classify-number?number=371
 
@@ -60,6 +60,6 @@ Error Handling
 - All error responses will have a JSON body with the following structure:
 
 {
+  "number": "alphabeth",
   "error": true,
-  "message": "Error message"
 }
