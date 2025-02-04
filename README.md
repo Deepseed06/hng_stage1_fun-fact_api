@@ -1,6 +1,6 @@
-Fun Facts Math API Documentation
-Introduction
-The Math API is a RESTful service that takes an integer as input and returns interesting mathematical properties about it, along with a fun fact.
+<h1>Fun Facts Math API Documentation</h1>
+### Introduction
+The Fun Facts Math API is a RESTful service that takes an integer as input and returns interesting mathematical properties about it, along with a fun fact.
 
 Endpoint
 1. Get Mathematical Properties
