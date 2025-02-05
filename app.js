@@ -1,7 +1,18 @@
 const express = require("express")
 const axios = require("axios")
+const cors = require("cors")
 const app = express()
 const port = process.env.PORT || 5000
+
+const corsOptions = {
+  origin: "*", // This allows all origins
+  methods: ["GET", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}
+
+app.use(cors(corsOptions))
+app.use(express.json())
+
 
 function isPrime(num) {
   if (num <= 1) return false
@@ -23,17 +34,19 @@ function isPerfect(num) {
 }
 
 function isArmstrong(num) {
-  const digits = num.toString().split("").map(Number)
-  const power = digits.length
-  const sum = digits.reduce((acc, digit) => acc + Math.pow(digit, power), 0)
-  return sum === num
+  if (num < 0) {
+    return false;
+  }
+
+  const digits = num.toString().split("").map(Number);
+  const power = digits.length;
+  const sum = digits.reduce((acc, digit) => acc + Math.pow(digit, power), 0);
+
+  return sum === num;
 }
 
 function digitSum(num) {
-  return num
-    .toString()
-    .split("")
-    .reduce((acc, digit) => acc + Number.parseInt(digit), 0)
+  return Math.sign(num) * num.toString().replace("-", "").split("").reduce((acc, digit) => acc + Number.parseInt(digit), 0);
 }
 
 app.get("/api/classify-number", async (req, res) => {
