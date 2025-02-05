@@ -30,7 +30,7 @@ function isPerfect(num) {
       if (i !== num / i) sum += num / i
     }
   }
-  return sum === num && num !== 1
+  return sum === num && num !== 1 || Math.sqrt(num) % 1 === 0
 }
 
 function isArmstrong(num) {
