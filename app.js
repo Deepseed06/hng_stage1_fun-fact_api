@@ -50,18 +50,25 @@ function digitSum(num) {
 }
 
 app.get("/api/classify-number", async (req, res) => {
-  const numberParam = req.query.number
+  const numberParam = req.query.number;
 
   if (!numberParam) {
     return res.status(400).json({number: null, error: true})
   }
+
 
   const number = Number.parseInt(numberParam)
 
   if (isNaN(number)) {
     return res.status(400).json({ number:numberParam, error: true })
   }
+  if (numberParam % 1 !== 0) {
+    return res.status(400).json({ number:numberParam, error: true })
+  }
 
+  if (typeof numberParam === 'string' && !/^\d+$/.test(numberParam)) {
+    return res.status(400).json({ number:numberParam, error: true })
+  }
   const properties = []
   // if (isPrime(number)) properties.push("prime")
   // if (isPerfect(number)) properties.push("perfect")
