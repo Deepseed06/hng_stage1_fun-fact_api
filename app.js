@@ -63,8 +63,8 @@ app.get("/api/classify-number", async (req, res) => {
   }
 
   const properties = []
-  if (isPrime(number)) properties.push("prime")
-  if (isPerfect(number)) properties.push("perfect")
+  // if (isPrime(number)) properties.push("prime")
+  // if (isPerfect(number)) properties.push("perfect")
   if (isArmstrong(number)) properties.push("armstrong")
   if (number % 2 === 0) properties.push("even")
   else properties.push("odd")
