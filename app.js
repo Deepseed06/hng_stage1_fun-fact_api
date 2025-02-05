@@ -65,10 +65,9 @@ app.get("/api/classify-number", async (req, res) => {
   if (numberParam % 1 !== 0) {
     return res.status(400).json({ number:numberParam, error: true })
   }
-
-  if (typeof numberParam === 'string' && !/^\d+$/.test(numberParam)) {
-    return res.status(400).json({ number:numberParam, error: true })
-  }
+  // if (/^[0-9]+$/.test(numberParam) === false) {
+  //   return { error: 'Input must contain only numbers.' };
+  // }
   const properties = []
   // if (isPrime(number)) properties.push("prime")
   // if (isPerfect(number)) properties.push("perfect")
