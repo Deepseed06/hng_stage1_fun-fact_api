@@ -53,7 +53,7 @@ app.get("/api/classify-number", async (req, res) => {
   const numberParam = req.query.number
 
   if (!numberParam) {
-    return res.status(400).json({ error: "Number parameter is required" })
+    return res.status(400).json({number: null, error: true})
   }
 
   const number = Number.parseInt(numberParam)
